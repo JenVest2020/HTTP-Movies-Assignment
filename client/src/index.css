@@ -5,8 +5,13 @@ body {
   background-color: #f2f2f2;
 }
 
+h2,h3, .movie-metascore, .movie-star{
+  color: black;
+  text-decoration: none;
+}
+
 .movie-card {
-  background-color: #fff;
+  background-image: linear-gradient(to top left,rgb(230, 172, 0),#6e5100 ,#fff2cc );
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -17,6 +22,7 @@ body {
 }
 
 .movie-director {
+  color: black;
   padding: 4px 0;
   font-size: 0.8rem;
 }
@@ -61,6 +67,40 @@ body {
   padding: 5px 10px;
   background-color: lightseagreen;
 }
+
+.edit-movie-btn{
+  margin-right: 75%;
+  margin-left: 2%;
+  background-color: lightseagreen;
+  font-weight: bold;
+}
+
+.edit-movie-btn:hover{
+  background-color: green;
+  color: white;
+}
+
+.delete-movie-btn{
+  background-color: orangered;
+  font-weight: bold;
+}
+
+.delete-movie-btn:hover{
+  background-color: red;
+  color: white;
+}
+
+.edit-star-btn{
+  background-color: yellow;
+  border: none;
+  margin:0.5%
+}
+
+.edit-star-btn:hover{
+  background-color: palegoldenrod;
+  font-weight: bold;
+  box-shadow: 1px 1px darkgoldenrod;
+}
 .save-button:hover {
   background-color: green;
   color: white;
@@ -74,4 +114,24 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+.update-form{
+  background-image: linear-gradient(to top left,rgb(230, 172, 0),#6e5100 ,#fff2cc );
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.input{
+  width: 80%;
+ margin-bottom: 1%;
+ text-align: center;
+ border: 2px ridge teal;
+}
+
+.label{
+  font-weight: bold;
 }
