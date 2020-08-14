@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useHistory } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
-function Movie(props, { addToSavedList }) {
+function Movie(props, { addToSavedList, setDependency }) {
   const [movie, setMovie] = useState(null);
   const params = useParams();
   const history = useHistory();
@@ -19,8 +19,8 @@ function Movie(props, { addToSavedList }) {
       .then(res => {
         console.log('from handleDelete: res', res);
         history.push('/movies');
-
       })
+      
       .catch(err => console.error('from handleDelete fail: err', err.message))
   };
 

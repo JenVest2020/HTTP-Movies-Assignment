@@ -9,7 +9,7 @@ const initialChange = {
     stars: '',
 };
 
-const UpdateForm = () => {
+const UpdateForm = ({dependency, setDependency}) => {
     // console.log('from UpdateForm: props', props);
     const [change, setChange] = useState(initialChange);
     const { id } = useParams();
@@ -21,9 +21,10 @@ const UpdateForm = () => {
             .then(res => {
                 setChange(res.data);
                 console.log('UpdateForm: movies/id: res', res)
+                setDependency(false)
             })
             .catch(err => console.error('UpdateForm: movies/id failed: err', err.message))
-    }, [id]);
+    }, [dependency]);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -31,6 +32,7 @@ const UpdateForm = () => {
             .then(res => {
                 console.log('UpdateForm: submit success:res', res);
                 setChange(res.data);
+                setDependency(true);
                 history.push('/movies');
             })
             .catch(err => console.error('UpdateForm: submit failed:err', err))

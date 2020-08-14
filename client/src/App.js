@@ -9,6 +9,7 @@ import UpdateForm from "./Movies/UpdateForm";
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [dependency, setDependency] = useState(false);
 
   const getMovieList = () => {
     axios
@@ -23,7 +24,8 @@ const App = () => {
 
   useEffect(() => {
     getMovieList();
-  }, []);
+    setDependency(false)
+  }, [dependency]);
 
   return (
     <>
@@ -31,15 +33,15 @@ const App = () => {
       <SavedList list={savedList} />
 
       <Route exact path="/movies">
-        <MovieList movies={movieList} />
+        <MovieList movies={movieList} setDependency={setDependency} />
       </Route>
 
       <Route path="/movies/:id">
-        <Movie addToSavedList={addToSavedList} movies={movieList} />
+        <Movie addToSavedList={addToSavedList} movies={movieList} dependency={dependency} setDependency={setDependency} />
       </Route>
       <Route path='/update-movie/:id'
         render={() => {
-          return <UpdateForm movie={movieList} />
+          return <UpdateForm movie={movieList} dependency={dependency} setDependency={setDependency} />
         }} />
     </>
   );
